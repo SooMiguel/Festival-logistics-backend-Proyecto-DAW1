@@ -1,9 +1,12 @@
 package com.cibertec.festival.mappers;
 
+import org.springframework.stereotype.Component;
+
 import com.cibertec.festival.dto.EquipoRequestDto;
 import com.cibertec.festival.dto.EquipoResponseDto;
 import com.cibertec.festival.models.Equipo;
 
+@Component
 public class EquipoMapper {
 	public EquipoResponseDto toEquipoResponse(Equipo equipo) {
 		EquipoResponseDto dto = new EquipoResponseDto();

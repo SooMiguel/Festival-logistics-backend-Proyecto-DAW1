@@ -1,9 +1,12 @@
 package com.cibertec.festival.mappers;
 
+import org.springframework.stereotype.Component;
+
 import com.cibertec.festival.dto.EscenarioRequestDto;
 import com.cibertec.festival.dto.EscenarioResponseDto;
 import com.cibertec.festival.models.Escenario;
 
+@Component
 public class EscenarioMapper {
 	public EscenarioResponseDto toEstudianteResponse(Escenario escenario) {
 		EscenarioResponseDto dto = new EscenarioResponseDto();

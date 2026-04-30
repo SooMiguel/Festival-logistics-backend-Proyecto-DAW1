@@ -1,9 +1,12 @@
 package com.cibertec.festival.mappers;
 
+import org.springframework.stereotype.Component;
+
 import com.cibertec.festival.dto.UsuarioRequestDto;
 import com.cibertec.festival.dto.UsuarioResponseDto;
 import com.cibertec.festival.models.Usuario;
 
+@Component
 public class UsuarioMapper {
 	public UsuarioResponseDto toUsuarioResponse(Usuario usuario) {
 		UsuarioResponseDto dto = new UsuarioResponseDto();

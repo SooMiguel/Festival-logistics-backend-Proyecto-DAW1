@@ -1,9 +1,12 @@
 package com.cibertec.festival.mappers;
 
+import org.springframework.stereotype.Component;
+
 import com.cibertec.festival.dto.PresentacionRequestDto;
 import com.cibertec.festival.dto.PresentacionResponseDto;
 import com.cibertec.festival.models.Presentacion;
 
+@Component
 public class PresentacionMapper {
 	public PresentacionResponseDto toPresentacionResponse(Presentacion presentacion) {
 		PresentacionResponseDto dto = new PresentacionResponseDto();

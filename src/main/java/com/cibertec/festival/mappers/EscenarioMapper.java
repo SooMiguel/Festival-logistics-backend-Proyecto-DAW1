@@ -8,7 +8,7 @@ import com.cibertec.festival.models.Escenario;
 
 @Component
 public class EscenarioMapper {
-	public EscenarioResponseDto toEstudianteResponse(Escenario escenario) {
+	public EscenarioResponseDto toEscenarioResponse(Escenario escenario) {
 		EscenarioResponseDto dto = new EscenarioResponseDto();
 		dto.setIdEscenario(escenario.getIdEscenario());
 		dto.setNombre(escenario.getNombre());

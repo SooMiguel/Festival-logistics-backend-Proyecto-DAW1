@@ -12,37 +12,36 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.cibertec.festival.dto.ArtistaRequestDto;
-import com.cibertec.festival.dto.ArtistaResponseDto;
-import com.cibertec.festival.service.ArtistaService;
+import com.cibertec.festival.dto.EquipoRequestDto;
+import com.cibertec.festival.dto.EquipoResponseDto;
+import com.cibertec.festival.service.EquipoService;
 
 @RestController
-@RequestMapping("/api/artista")
-public class ArtistaController {
+@RequestMapping("/equipo")
+public class EquipoController {
 	@Autowired
-	private ArtistaService service;
+	private EquipoService service;
 	
-	@GetMapping("/{idArtista}")
-	public ArtistaResponseDto getArtista(Integer id) {
-		return service.getArtista(id);
+	@GetMapping("/{idEquipo}")
+	public EquipoResponseDto getEquipo(Integer id) {
+		return service.getEquipo(id);
 	}
 	
 	@PostMapping
-	public ResponseEntity<?> addArtista(@RequestBody ArtistaRequestDto dto){
+	public ResponseEntity<?> addEquipo(@RequestBody EquipoRequestDto dto){
 		return ResponseEntity
 				.status(HttpStatus.CREATED)
-				.body(service.addArtista(dto));
+				.body(service.addEquipo(dto));
 	}
 	
-	@PutMapping("/{idArtista}")
-	public ResponseEntity<?> editArtista(@PathVariable Integer idArtista, @RequestBody ArtistaRequestDto dto) {
-		return ResponseEntity.ok(service.editArtista(idArtista, dto));
+	@PutMapping("/{idEquipo}")
+	public ResponseEntity<?> editEquipo(@PathVariable Integer idEquipo, @RequestBody EquipoRequestDto dto) {
+		return ResponseEntity.ok(service.editEquipo(idEquipo, dto));
 	}
 	
-	@DeleteMapping("/{idArtista}")
-	public ResponseEntity<?> removeArtista(@PathVariable Integer idArtista){
-		service.removeArtista(idArtista);
+	@DeleteMapping("/{idEquipo}")
+	public ResponseEntity<?> removeEquipo(@PathVariable Integer idEquipo){
+		service.removeEquipo(idEquipo);
 		return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
 	}
-	
 }

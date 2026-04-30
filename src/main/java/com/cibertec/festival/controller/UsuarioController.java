@@ -12,37 +12,36 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.cibertec.festival.dto.ArtistaRequestDto;
-import com.cibertec.festival.dto.ArtistaResponseDto;
-import com.cibertec.festival.service.ArtistaService;
+import com.cibertec.festival.dto.UsuarioRequestDto;
+import com.cibertec.festival.dto.UsuarioResponseDto;
+import com.cibertec.festival.service.UsuarioService;
 
 @RestController
-@RequestMapping("/api/artista")
-public class ArtistaController {
+@RequestMapping("/api/usuario")
+public class UsuarioController {
 	@Autowired
-	private ArtistaService service;
+	private UsuarioService service;
 	
-	@GetMapping("/{idArtista}")
-	public ArtistaResponseDto getArtista(Integer id) {
-		return service.getArtista(id);
+	@GetMapping("/{idUsuario}")
+	public UsuarioResponseDto getUsuario(Integer id) {
+		return service.getUsuario(id);
 	}
 	
 	@PostMapping
-	public ResponseEntity<?> addArtista(@RequestBody ArtistaRequestDto dto){
+	public ResponseEntity<?> addUsuario(@RequestBody UsuarioRequestDto dto){
 		return ResponseEntity
 				.status(HttpStatus.CREATED)
-				.body(service.addArtista(dto));
+				.body(service.addUsuario(dto));
 	}
 	
-	@PutMapping("/{idArtista}")
-	public ResponseEntity<?> editArtista(@PathVariable Integer idArtista, @RequestBody ArtistaRequestDto dto) {
-		return ResponseEntity.ok(service.editArtista(idArtista, dto));
+	@PutMapping("/{idUsuario}")
+	public ResponseEntity<?> editUsuario(@PathVariable Integer idUsuario, @RequestBody UsuarioRequestDto dto) {
+		return ResponseEntity.ok(service.editUsuario(idUsuario, dto));
 	}
 	
-	@DeleteMapping("/{idArtista}")
-	public ResponseEntity<?> removeArtista(@PathVariable Integer idArtista){
-		service.removeArtista(idArtista);
+	@DeleteMapping("/{idUsuario}")
+	public ResponseEntity<?> removeUsuario(@PathVariable Integer idUsuario){
+		service.removeUsuario(idUsuario);
 		return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
 	}
-	
 }

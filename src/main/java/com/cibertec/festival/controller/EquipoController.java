@@ -1,5 +1,7 @@
 package com.cibertec.festival.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,6 +23,12 @@ import com.cibertec.festival.service.EquipoService;
 public class EquipoController {
 	@Autowired
 	private EquipoService service;
+	
+	@GetMapping
+	public List<EquipoResponseDto> listarEquipos() {
+	    return service.getAll();
+	}
+	
 	
 	@GetMapping("/{idEquipo}")
 	public EquipoResponseDto getEquipo(Integer id) {

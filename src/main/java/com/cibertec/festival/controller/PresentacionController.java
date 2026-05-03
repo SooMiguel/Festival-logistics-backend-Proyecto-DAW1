@@ -1,5 +1,7 @@
 package com.cibertec.festival.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,6 +24,11 @@ public class PresentacionController {
 	@Autowired
 	private PresentacionService service;
 
+	@GetMapping
+	public List<PresentacionResponseDto> listarPresentaciones() {
+	    return service.getAll();
+	}
+	
 	@GetMapping("/{idPresentacion}")
 	public PresentacionResponseDto getPresentacion(Integer id) {
 		return service.getPresentacion(id);

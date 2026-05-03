@@ -1,5 +1,7 @@
 package com.cibertec.festival.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,6 +23,12 @@ import com.cibertec.festival.service.EscenarioService;
 public class EscenarioController {
 	@Autowired
 	private EscenarioService service;
+	
+	@GetMapping
+	public List<EscenarioResponseDto> listarEscenarios() {
+	    return service.getAll();
+	}
+	
 	
 	@GetMapping("/{idEscenario}")
 	public EscenarioResponseDto getEscenario(Integer id) {

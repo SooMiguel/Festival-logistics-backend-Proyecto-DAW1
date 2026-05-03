@@ -14,7 +14,7 @@ import io.jsonwebtoken.SignatureAlgorithm;
 public class JwtUtil {
 
     // Clave secreta para firmar el token
-    private final String SECRET_KEY = "festival_logistics_clave_secreta_2024";
+    private final String SECRET_KEY = "festivalLogisticsClaveSecreta2024SeguraYFuerte1234567890";
 
     // Generar token con el username
     public String generateToken(String username) {
@@ -28,7 +28,7 @@ public class JwtUtil {
                 .setSubject(subject)
                 .setIssuedAt(new Date(System.currentTimeMillis()))
                 .setExpiration(new Date(System.currentTimeMillis() + 1000L * 60 * 60 * 10)) // 10 horas
-                .signWith(SignatureAlgorithm.HS256, SECRET_KEY)
+                .signWith(SignatureAlgorithm.HS256, SECRET_KEY.getBytes())
                 .compact();
     }
 
@@ -51,7 +51,7 @@ public class JwtUtil {
     // Extraer todos los datos del token
     private Claims extractAllClaims(String token) {
         return Jwts.parser()
-                .setSigningKey(SECRET_KEY)
+                .setSigningKey(SECRET_KEY.getBytes())
                 .parseClaimsJws(token)
                 .getBody();
     }

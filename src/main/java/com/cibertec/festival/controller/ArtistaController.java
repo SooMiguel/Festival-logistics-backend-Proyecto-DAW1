@@ -1,5 +1,7 @@
 package com.cibertec.festival.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,6 +23,11 @@ import com.cibertec.festival.service.ArtistaService;
 public class ArtistaController {
 	@Autowired
 	private ArtistaService service;
+	
+	@GetMapping
+	public List<ArtistaResponseDto> listarArtistas() {
+	    return service.getAll();
+	}
 	
 	@GetMapping("/{idArtista}")
 	public ArtistaResponseDto getArtista(Integer id) {
